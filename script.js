@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. DYNAMIC TYPEWRITER EFFECT ---
     const typingElement = document.getElementById('typing-text');
     const phrases = [
-        'Senior iOS Developer (Atmosware / Turkcell)',
-        'Fizy Uygulaması (1M+ Aktif Kullanıcı)',
-        'Swift, Objective-C & SPM Modüler Mimari',
+        'Senior iOS Developer',
+        'Swift, SwiftUI & UIKit Uzmanı',
+        'SPM Modüler Mimari & Clean Code',
         'VIPER, MVVM-C & Swift Concurrency'
     ];
     let phraseIndex = 0;
