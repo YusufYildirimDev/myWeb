@@ -1,0 +1,60 @@
+/* Custom Styles for Lacivert + Amber Theme (#0F1A2B, #1F3A5F, #2A3A52, #8FA3BF, #EEF2F7, #F2B544) */
+
+/* Active Filter Tab Styling (Amber Gold) */
+.active-filter {
+    background-color: #F2B544 !important;
+    color: #0F1A2B !important;
+    font-weight: 800 !important;
+    box-shadow: 0 4px 16px 0 rgba(242, 181, 68, 0.35);
+}
+
+/* Glassmorphism Classes (Dark Navy Glass) */
+.glass-panel {
+    background: rgba(31, 58, 95, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid #2A3A52;
+}
+
+/* Smooth Scrolling & Custom Amber Scrollbar */
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0F1A2B;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2A3A52;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #F2B544;
+}
+
+/* Active Nav Link Marker */
+.nav-link.active-nav {
+    color: #F2B544;
+    background-color: rgba(242, 181, 68, 0.12);
+}
+
+/* Project Card Hover Animation */
+.project-card {
+    will-change: transform, opacity;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Custom Selection Highlight */
+::selection {
+    background-color: #F2B544;
+    color: #0F1A2B;
+}
