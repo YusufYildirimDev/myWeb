@@ -1,4 +1,11 @@
-/* Custom Styles for Lacivert + Amber Theme (#0F1A2B, #1F3A5F, #2A3A52, #8FA3BF, #EEF2F7, #F2B544) */
+/* Custom Styles & Mobile Responsiveness Enhancements for Yusuf Muhammet YILDIRIM Portfolio */
+
+/* Base & Overflow Prevention */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
 
 /* Active Filter Tab Styling (Amber Gold) */
 .active-filter {
@@ -10,7 +17,7 @@
 
 /* Glassmorphism Classes (Dark Navy Glass) */
 .glass-panel {
-    background: rgba(31, 58, 95, 0.75);
+    background: rgba(31, 58, 95, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid #2A3A52;
@@ -22,7 +29,13 @@ html {
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
+}
+
+@media (min-width: 768px) {
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
 }
 
 ::-webkit-scrollbar-track {
@@ -47,14 +60,30 @@ html {
 /* Project Card Hover Animation */
 .project-card {
     will-change: transform, opacity;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
+@media (min-width: 768px) {
+    .project-card:hover {
+        transform: translateY(-6px);
+    }
 }
 
 /* Custom Selection Highlight */
 ::selection {
     background-color: #F2B544;
     color: #0F1A2B;
+}
+
+/* iOS Safari Input Auto-Zoom Prevention */
+@media (max-width: 767px) {
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Terminal Code Scrollbar */
+.terminal-code {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
