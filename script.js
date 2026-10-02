@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 3. CONTACT FORM SUBMISSION HANDLER ---
+    // --- 3. WHATSAPP CONTACT FORM SUBMISSION HANDLER ---
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
     const submitBtn = document.getElementById('submit-btn');
@@ -70,23 +70,37 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subjectSelect = document.getElementById('subject');
+            const subjectText = subjectSelect.options[subjectSelect.selectedIndex].text;
+            const message = document.getElementById('message').value.trim();
+
             const originalBtnContent = submitBtn.innerHTML;
             submitBtn.disabled = true;
-            submitBtn.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin"></i> <span>Gönderiliyor...</span>`;
+            submitBtn.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin"></i> <span>WhatsApp Yönlendiriliyor...</span>`;
+
+            // WhatsApp Message Format
+            const rawMessage = `Merhaba Yusuf Bey,\n\n*Ad Soyad:* ${name}\n*E-Posta:* ${email}\n*Konu:* ${subjectText}\n\n*Mesaj:* ${message}`;
+            const whatsappPhoneNumber = '905445045122';
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappPhoneNumber}&text=${encodeURIComponent(rawMessage)}`;
 
             setTimeout(() => {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtnContent;
-                contactForm.reset();
 
                 formStatus.classList.remove('hidden', 'bg-red-500/10', 'text-red-400');
-                formStatus.classList.add('bg-[#F2B544]/10', 'text-[#F2B544]', 'border', 'border-[#F2B544]/30');
-                formStatus.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Mesajınız başarıyla iletildi! Yusuf Muhammet YILDIRIM en kısa sürede size dönüş yapacaktır.`;
+                formStatus.classList.add('bg-[#25D366]/10', 'text-[#25D366]', 'border', 'border-[#25D366]/30');
+                formStatus.innerHTML = `<i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp açılıyor... Mesajınızı onaylayarak gönderebilirsiniz.`;
+
+                // Open WhatsApp in a new window/tab
+                window.open(whatsappUrl, '_blank');
 
                 setTimeout(() => {
                     formStatus.classList.add('hidden');
-                }, 6000);
-            }, 1200);
+                    contactForm.reset();
+                }, 4000);
+            }, 800);
         });
     }
 
